@@ -23,6 +23,7 @@ def save_picture(form_picture):
 
 
 def send_reset_email(user):
+    token = user.get_reset_token()
     sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
 
     from_email = Email("noreply@flasktestapp.com")
